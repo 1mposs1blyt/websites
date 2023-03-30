@@ -16,11 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //use static files in folders
-app.use(express.static("public/static"));
+app.use(express.static("/static/"));
 
 //index.html
 app.get("/", (req, res) => {
-  res.render("index.html");
+  res.render(__dirname+"/index.html");
 });
 
 //places.html
