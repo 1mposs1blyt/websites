@@ -11,7 +11,7 @@ body {
     justify-content: center;
 }
 
-.login-card {
+.login-card, .signin-card {
     width:  450px;
     background: rgba(255, 255, 255, .5);
     padding: 4rem;
@@ -19,7 +19,7 @@ body {
     position: relative;
 }
 
-.login-card::before {
+.login-card::before, .signin-card::before {
     content: "";
     position: absolute;
     background: rgba(255, 255, 255, .15);
@@ -28,17 +28,19 @@ body {
     z-index: -1;
 }
 
-.login-card-logo {
+.login-card-logo, .signin-card-logo {
     margin-bottom: 2rem;
 }
 
-.login-card-logo img {
+.login-card-logo img, .signin-card-logo img {
     width: 60px;
 }
 
 .login-card-logo,
 .login-card-header,
-.login-card-footer {
+.login-card-footer,
+.signin-card-logo,
+.signin-card-header {
     text-align: center;
 }
 
@@ -51,32 +53,32 @@ body {
     text-decoration: underline;
 }
 
-.login-card-header {
+.login-card-header, .signin-card-header {
     margin-bottom: 2rem;
 }
 
-.login-card-header h1 {
+.login-card-header h1, .signin-card-header h1 {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: .5rem;
 }
 
-.login-card-header h1 + div {
+.login-card-header h1 + div, .signin-card-header h1 + div {
     font-size: calc(1rem * .8);
     opacity: .8;
 }
 
-.login-card-form {
+.login-card-form, .signin-card-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.login-card-form .form-item {
+.login-card-form .form-item, .signin-card-form .form-item {
     position: relative;
 }
 
-.login-card-form .form-item .form-item-icon {
+.login-card-form .form-item .form-item-icon, .signin-card-form .form-item .form-item-icon {
     position: absolute;
     top: .82rem;
     left: 1.4rem;
@@ -105,7 +107,10 @@ body {
 
 .login-card input[type="text"],
 .login-card input[type="password"],
-.login-card input[type="email"] {
+.login-card input[type="email"],
+.signin-card input[type="nickname"],
+.signin-card input[type="password"],
+.signin-card input[type="email"] {
     border: none;
     outline: none;
     background: rgba(255, 255, 255, .3);
@@ -116,7 +121,7 @@ body {
     transition: background .5s;
 }
 
-.login-card input:focus {
+.login-card input:focus, .signin-card input:focus {
     background: white;
 }
 
@@ -126,7 +131,7 @@ body {
     accent-color: black;
 }
 
-.login-card-form button {
+.login-card-form button, .signin-card-form button {
     background: black;
     color: white;
     padding: 1rem;
@@ -136,7 +141,7 @@ body {
     transition: background .5s;
 }
 
-.login-card-form button:hover {
+.login-card-form button:hover, .signin-card-form button:hover {
     background-color: rgba(0, 0, 0, .85);
     cursor: pointer;
 }
@@ -184,7 +189,7 @@ body {
     body {
         padding: 2rem 0;
     }
-    .login-card {
+    .login-card, .signin-card {
         width: 300px;
         padding: 2rem;
     }

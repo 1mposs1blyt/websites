@@ -6,7 +6,7 @@ const host = "127.0.0.1";
 const port = "4000";
 
 
-nunjucks.configure(__dirname + "/templates", {
+nunjucks.configure(__dirname + "/views", {
   autoescape: true,
   express: app,
 });
@@ -23,11 +23,9 @@ app.get("/", (req, res) => {
   res.render("index.html");
 });
 
-//places.html
-app.get("/places", (req, res) => {
-  res.render("places.html");
-});
-
+app.get("/SignIn", (req, res) => {
+    res.render("signForm.html")
+})
 //post
 app.post("/login", (req, res) => {
   console.log(req.body);
