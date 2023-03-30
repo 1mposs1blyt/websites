@@ -82,10 +82,10 @@ app.post('/reg', (req, res) => {
   let id = Math.floor(Math.random() * 10000) + 1;
   let name = req.body.name;
   let email = req.body.email;
-  let password = req.body.email;
+  let password = req.body.password;
   get_data("reg", [id,name,email,password]).then((resolve) => {
     console.log(resolve)
-    res.status(200).send("РЕгистрация успешна!")
+    res.status(200).send("Регистрация успешна!")
   })
 })
 // router.post('/', function (req, res, next) {
