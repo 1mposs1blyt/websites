@@ -3,7 +3,7 @@ const nunjucks = require("nunjucks");
 const bodyParser = require("body-parser");
 const app = express();
 const host = "127.0.0.1";
-const port = "4000";
+const port = "5000";
 
 
 nunjucks.configure(__dirname + "/views", {
@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
 });
 
 //places.html
-app.get("/places", (req, res) => {
-  res.render("places.html");
+app.get("/signin", (req, res) => {
+  res.render("signin.html");
 });
 
 //post
