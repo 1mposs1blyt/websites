@@ -6,7 +6,6 @@ const host = "127.0.0.1";
 const port = "4000";
 
 
-
 nunjucks.configure(__dirname + "/templates", {
   autoescape: true,
   express: app,
