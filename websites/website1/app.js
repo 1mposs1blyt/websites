@@ -60,16 +60,16 @@ app.get("/signin", (req, res) => {
 app.post("/login", (req, res) => {
   console.log(req.body);
   let name = req.body.name;
+  let email = req.body.email;
   let password = req.body.password;
-  get_data("auth", [name,password]).then((resolve) => {
-    console.log(resolve)
+  get_data("auth", [name,email,password]).then((resolve) => {
     if (resolve.lenght == 0) {
       console.log("NULL")
       res.sendStatus(401).send("not ok")
     } else {
       console.log(resolve)
       if (resolve.length > 0) {
-        res.status(200).send("Вход вывполнен успешно!")
+        res.status(200).render("main.html")
       }
       else {
         res.status(401).send("not ok")
