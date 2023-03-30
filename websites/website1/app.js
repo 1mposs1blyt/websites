@@ -28,6 +28,7 @@ async function get_data(query, data_query) {
   let sql_queries = {
     all: `SELECT * FROM users`,
     auth: `SELECT * FROM users WHERE name = ? or email = ? AND password = ?`,
+    reg:`INSERT INTO users (id,name, email, password) VALUES (?,?, ?, ?)`,
     // cartdelone: `UPDATE usercart SET `
   }
   let sql = sql_queries[query];
@@ -68,7 +69,7 @@ app.post("/login", (req, res) => {
     } else {
       console.log(resolve)
       if (resolve.length > 0) {
-        res.status(200).send(resolve[0],"Вход вывполнен успешно!")
+        res.status(200).send("Вход вывполнен успешно!")
       }
       else {
         res.status(401).send("not ok")
@@ -76,6 +77,17 @@ app.post("/login", (req, res) => {
     }
   })
 });
+app.post('/reg', (req, res) => {
+  console.log(req.body);
+  let id = Math.floor(Math.random() * 10000) + 1;
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.email;
+  get_data("reg", [id,name,email,password]).then((resolve) => {
+    console.log(resolve)
+    res.status(200).send("РЕгистрация успешна!")
+  })
+})
 // router.post('/', function (req, res, next) {
 //   console.log("auth:",req.sessionID)
 //   let nick = req.body.nick;
