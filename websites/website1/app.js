@@ -77,6 +77,7 @@ app.post("/login", (req, res) => {
     }
   })
 });
+//Sanya gay
 app.post('/reg', (req, res) => {
   console.log(req.body);
   let id = Math.floor(Math.random() * 10000) + 1;
