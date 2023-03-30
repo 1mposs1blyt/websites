@@ -23,10 +23,6 @@ app.get("/", (req, res) => {
   res.render("index.html");
 });
 
-//places.html
-app.get("/places", (req, res) => {
-  res.render("places.html");
-});
 
 //post
 app.post("/login", (req, res) => {
