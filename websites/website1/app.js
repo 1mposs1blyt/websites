@@ -27,7 +27,7 @@ async function get_data(query, data_query) {
   });
   let sql_queries = {
     all: `SELECT * FROM users`,
-    auth: `SELECT * FROM users WHERE name = ?  AND password = ? or email = ? AND password = ?`,
+    auth: `SELECT * FROM users WHERE name = ? AND password = ?`,
     reg:`INSERT INTO users (id,name, email, password) VALUES (?,?, ?, ?)`,
     // cartdelone: `UPDATE usercart SET `
   }
@@ -60,9 +60,9 @@ app.get("/signin", (req, res) => {
 app.post("/login", (req, res) => {
   console.log(req.body);
   let name = req.body.name;
-  let email = req.body.email;
-  let password = req.body.email;
-  get_data("auth", [name,email,password]).then((resolve) => {
+  let password = req.body.password;
+  get_data("auth", [name,password]).then((resolve) => {
+    console.log(resolve)
     if (resolve.lenght == 0) {
       console.log("NULL")
       res.sendStatus(401).send("not ok")
@@ -84,7 +84,7 @@ app.post('/reg', (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let password = req.body.password;
-  get_data("reg", [id,name,password,email,password]).then((resolve) => {
+  get_data("reg", [id,name,email,password]).then((resolve) => {
     console.log(resolve)
     res.status(200).send("Регистрация успешна!")
   })
