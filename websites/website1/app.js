@@ -6,7 +6,7 @@ const host = "127.0.0.1";
 const port = "4000";
 
 
-nunjucks.configure(__dirname + "/views", {
+nunjucks.configure(__dirname + "/templates", {
   autoescape: true,
   express: app,
 });
@@ -16,11 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //use static files in folders
-app.use(express.static("/static/"));
+app.use(express.static("static"));
 
 //index.html
 app.get("/", (req, res) => {
-  res.render(__dirname+"/index.html");
+  res.render("index.html");
 });
 
 //places.html
